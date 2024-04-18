@@ -7,7 +7,7 @@ from hackathon_data.excel_utils import create_excel_workbook
 class TestCreateExcelWorkbook(unittest.TestCase):
     def test_create_excel_workbook(self):
         # Define the test file name
-        test_filename = 'test_output.xlsx'
+        test_filename = 'data/test_output.xlsx'
 
         # Mock data
         data = [
@@ -44,7 +44,7 @@ class TestCreateExcelWorkbook(unittest.TestCase):
             ['user12345', 'User One Very Long Name', 'Exercise A', 'Python', '2024-04-01', 'Beginner', 100],
             ['user2', 'User Two', 'Exercise B', 'Java, Scala, Kotlin', '2024-04-02', 'Intermediate', 200]
         ]
-        test_filename = 'test_output.xlsx'
+        test_filename = 'data/test_output.xlsx'
         
         # Call the function
         workbook = create_excel_workbook(test_filename, data)
@@ -63,6 +63,7 @@ class TestCreateExcelWorkbook(unittest.TestCase):
             column_letter = get_column_letter(i)
             self.assertEqual(worksheet.column_dimensions[column_letter].width, expected_widths[i-1])
 
-
+        # Remove the test file
+        os.remove(test_filename)
 if __name__ == "__main__":
     unittest.main()
