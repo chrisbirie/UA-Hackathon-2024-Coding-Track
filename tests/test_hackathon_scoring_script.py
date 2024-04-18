@@ -1,4 +1,3 @@
-import os
 import unittest
 from unittest.mock import patch
 from scripts.hackathon_scoring_script import main
