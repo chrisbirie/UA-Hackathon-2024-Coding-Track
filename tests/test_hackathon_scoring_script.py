@@ -28,5 +28,6 @@ class TestMainFunction(unittest.TestCase):
         mock_prepare_results.assert_called_once_with(user_data, scoring_data)
         mock_create_excel.assert_called_once_with("data/hackathon_scores.xlsx", results_data)
 
+
 if __name__ == '__main__':
     unittest.main()

@@ -7,7 +7,7 @@ class TestCalculateScore(unittest.TestCase):
     def test_calculate_score_with_matching_rank(self):
         # Arrange
         rank_name = "Gold"
-        scoring_data = [("Bronze", 10), ("Silver", 20), ("Gold", 30)]
+        scoring_data = [{'rank': 'Bronze' , 'score': 10},{'rank': 'Silver', 'score': 20},{'rank': 'Gold', 'score': 30}]
         
         # Act
         score = calculate_score(rank_name, scoring_data)
@@ -19,7 +19,7 @@ class TestCalculateScore(unittest.TestCase):
     def test_calculate_score_without_matching_rank(self):
         # Arrange
         rank_name = "Platinum"
-        scoring_data = [("Bronze", 10), ("Silver", 20), ("Gold", 30)]
+        scoring_data = [{'rank': 'Bronze' , 'score': 10},{'rank': 'Silver', 'score': 20},{'rank': 'Gold', 'score': 30}]
         
         # Act
         score = calculate_score(rank_name, scoring_data)
@@ -38,16 +38,6 @@ class TestCalculateScore(unittest.TestCase):
         
         # Assert
         self.assertEqual(score, 0, "ID: EdgeCase-EmptyScoringData")
-
-    # Error case test: scoring_data contains tuples with more than two elements
-    def test_calculate_score_with_invalid_tuple_length(self):
-        # Arrange
-        rank_name = "Gold"
-        scoring_data = [("Bronze", 10, "Extra"), ("Gold", 30)]
-        
-        # Act & Assert
-        with self.assertRaises(ValueError, msg="ID: ErrorCase-InvalidTupleLength"):
-            calculate_score(rank_name, scoring_data)
 
 if __name__ == '__main__':
     unittest.main()

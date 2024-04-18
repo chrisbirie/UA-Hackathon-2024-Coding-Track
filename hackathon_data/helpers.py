@@ -24,7 +24,7 @@ def prepare_results_data(user_data, scoring_data):
 
             # Calculate score for the challenge
             score = calculate_score(rank_name, scoring_data)
-
+        
             # Append data to excel_data list
             data.append((user['username'], user['full_name'], challenge_name, ', '.join(completed_languages), end_time, rank_name, score))
 
