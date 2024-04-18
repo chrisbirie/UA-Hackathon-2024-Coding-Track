@@ -1,7 +1,8 @@
 import unittest
 import os
 from openpyxl import load_workbook
-from hackathon_data.excel_utils import create_excel_workbook 
+from openpyxl.utils import get_column_letter
+from hackathon_data.excel_utils import create_excel_workbook
 
 class TestCreateExcelWorkbook(unittest.TestCase):
     def test_create_excel_workbook(self):
@@ -36,6 +37,32 @@ class TestCreateExcelWorkbook(unittest.TestCase):
 
         # Remove the test file
         os.remove(test_filename)
+
+class TestCreateExcelWorkbook(unittest.TestCase):
+    def test_column_widths(self):
+        data = [
+            ['user12345', 'User One Very Long Name', 'Exercise A', 'Python', '2024-04-01', 'Beginner', 100],
+            ['user2', 'User Two', 'Exercise B', 'Java, Scala, Kotlin', '2024-04-02', 'Intermediate', 200]
+        ]
+        test_filename = 'test_output.xlsx'
+        
+        # Call the function
+        workbook = create_excel_workbook(test_filename, data)
+        worksheet = workbook.active
+
+        # Get the maximum content length for each column, adjusted by logic used in function
+        expected_widths = []
+        for column in worksheet.columns:
+            max_length = 0
+            for cell in column:
+                max_length = max(max_length, len(str(cell.value)))
+            expected_widths.append(max_length + 2)
+
+        # Check if each column width matches the expected width
+        for i, column in enumerate(worksheet.columns, start=1):
+            column_letter = get_column_letter(i)
+            self.assertEqual(worksheet.column_dimensions[column_letter].width, expected_widths[i-1])
+
 
 if __name__ == "__main__":
     unittest.main()
