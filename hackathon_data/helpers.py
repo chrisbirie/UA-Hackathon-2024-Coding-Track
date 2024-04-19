@@ -1,6 +1,6 @@
 from hackathon_data.codewars_api import get_user_data, get_challenge_data
 from hackathon_data.scoring import calculate_score
-from datetime import datetime 
+from datetime import datetime, timedelta
 
 def prepare_results_data(user_data, scoring_data, start_time, end_time):
     user_data = user_data[1:]  # Skips the first row (header)
@@ -40,6 +40,14 @@ def format_datetime(in_date):
         return in_date
 
     date_time_object = datetime.strptime(in_date, "%Y-%m-%dT%H:%M:%S.%fZ")
-    formatted_date_time = date_time_object.strftime("%Y-%m-%d %H:%M:%S")
     
-    return formatted_date_time
+    # Define the UTC offset for Eastern Standard Time (EST)
+    utc_offset = timedelta(hours=-4)
+    
+    # Apply the UTC offset to the datetime object
+    formatted_date_time = date_time_object + utc_offset
+
+    # Format the EST datetime as a string
+    formatted_date_time_str = formatted_date_time.strftime("%Y-%m-%d %H:%M:%S")
+    
+    return formatted_date_time_str

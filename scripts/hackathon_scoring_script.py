@@ -4,7 +4,15 @@ from hackathon_data.helpers import prepare_results_data
 from datetime import datetime
 
 def main():
-    # URLs for scoring and usernames data
+    # Get the current date and time
+    current_time = datetime.now()
+
+    # Format the current time as a string
+    current_time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
+
+    # Print the string with the current time
+    print("Script started at: ", current_time_str)    # URLs for scoring and usernames data
+    
     scoring_url = "https://raw.githubusercontent.com/chrisbirie/UA-Hackathon-2024-Coding-Track/main/assets/files/scoring.csv"
     usernames_url = "https://raw.githubusercontent.com/chrisbirie/UA-Hackathon-2024-Coding-Track/main/assets/files/codewars_usernames.csv"
 
@@ -22,5 +30,14 @@ def main():
     filename = "data/hackathon_scores.xlsx"
     workbook = create_excel_workbook(filename, data)
 
+    # Get the current date and time
+    current_time = datetime.now()
+
+    # Format the current time as a string
+    current_time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
+
+    # Print the string with the current time
+    print("Script ended at: ", current_time_str) 
+    
 if __name__ == "__main__":
     main()
