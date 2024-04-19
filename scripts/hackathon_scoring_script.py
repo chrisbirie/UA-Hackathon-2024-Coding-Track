@@ -5,8 +5,8 @@ from datetime import datetime
 
 def main():
     # URLs for scoring and usernames data
-    scoring_url = "https://raw.githubusercontent.com/chrisbirie/UA-Hackathon-2024-Coding-Track/main/scoring.csv"
-    usernames_url = "https://raw.githubusercontent.com/chrisbirie/UA-Hackathon-2024-Coding-Track/main/codewars_usernames_test.csv"
+    scoring_url = "https://raw.githubusercontent.com/chrisbirie/UA-Hackathon-2024-Coding-Track/main/assets/files/scoring.csv"
+    usernames_url = "https://raw.githubusercontent.com/chrisbirie/UA-Hackathon-2024-Coding-Track/main/assets/files/codewars_usernames.csv"
 
     # Load scoring data from URL
     scoring_data = load_scoring_data_from_url(scoring_url)
