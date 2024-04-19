@@ -8,6 +8,6 @@ If you are interested in taking part in an optional competition, fill out this [
 
 If you do not wish to participate in the competition, feel free to work through the problems at your own pace and in whatever groups you like. 
 
-We have selected 48 katas for this hackathon. Only problems from the list attached that are completed within the time frame of this hackathon will count towards scoring for the competition. You are allowed to use Google for syntax and basic coding questions but nothing more. 
+We have selected [48 katas](./assets/files/ChallengeList.md) for this hackathon. Only problems from the list attached that are completed within the time frame of this hackathon will count towards scoring for the competition. You are allowed to use Google for syntax and basic coding questions but nothing more. 
 
 Feel free to pull one of our volunteers aside at any time for questions or a chat. We are more than happy to get to know you.

@@ -55,6 +55,6 @@
 
 
 ***
-![Student Led Clubs!](./assets/img/DifSpread.PNG)
+![Student Led Clubs!](../img/DifSpread.PNG)
 
 ***
